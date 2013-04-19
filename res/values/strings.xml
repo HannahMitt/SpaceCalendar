@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Space Calendar</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Hello space!</string>
     <string name="menu_settings">Settings</string>
 
 </resources>
