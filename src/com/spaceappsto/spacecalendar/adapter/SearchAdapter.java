@@ -10,17 +10,17 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.spaceappsto.spacecalendar.R;
-import com.spaceappsto.spacecalendar.network.Satellite;
+import com.spaceappsto.spacecalendar.network.Observation;
 
-public class SearchAdapter extends ArrayAdapter<Satellite> {
+public class SearchAdapter extends ArrayAdapter<Observation> {
 
 	private Context context;
-	private List<Satellite> satellites;
+	private List<Observation> observations;
 	
-	public SearchAdapter(Context context, int resource, int textViewResourceId, List<Satellite> objects) {
+	public SearchAdapter(Context context, int resource, int textViewResourceId, List<Observation> objects) {
 		super(context, resource, textViewResourceId, objects);
 		this.context = context;
-		satellites = objects;
+		observations = objects;
 	}
 	
 	@Override
@@ -34,8 +34,8 @@ public class SearchAdapter extends ArrayAdapter<Satellite> {
             
         }
 
-        Satellite satellite = satellites.get(position);
-        ((TextView)row.findViewById(R.id.name)).setText(satellite.name);
+        Observation satellite = observations.get(position);
+        ((TextView)row.findViewById(R.id.name)).setText(satellite.satellite.name);
         
         return row;
 	}

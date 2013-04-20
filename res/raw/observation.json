@@ -5,8 +5,8 @@
          "name" : "EXO748-67",
          "dec" : "-67:45:00.0"
       },
-      "finish_time" : "2000-01-12T19:14:22Z",
-      "start_time" : "2000-01-11T23:02:52Z",
+      "finish_time" : "2013-01-12T19:14:22Z",
+      "start_time" : "2013-01-11T23:02:52Z",
       "satellite" : {
          "link" : {
             "rel" : "self",
