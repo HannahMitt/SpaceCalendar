@@ -25,11 +25,7 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_timessquare:
-			startActivity(new Intent(this, SampleTimesSquareActivity.class));
-			break;
-			
-		case R.id.menu_pager:
-			startActivity(new Intent(this, PagerActivity.class));
+			startActivity(new Intent(this, CalendarActivity.class));
 			break;
 
 		default:

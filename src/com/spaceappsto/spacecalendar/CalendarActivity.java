@@ -11,7 +11,7 @@ import android.util.Log;
 import com.squareup.timessquare.CalendarPickerView;
 import com.squareup.timessquare.CalendarPickerView.OnDateSelectedListener;
 
-public class SampleTimesSquareActivity extends Activity {
+public class CalendarActivity extends Activity {
   private static final String TAG = "SampleTimesSquareActivity";
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class SampleTimesSquareActivity extends Activity {
 		@Override
 		public void onDateSelected(Date date) {
 			Log.d(TAG, "Selected time in millis: " + calendar.getSelectedDate().getTime());
-			startActivity(new Intent(SampleTimesSquareActivity.this, DayActivity.class));
+			startActivity(new Intent(CalendarActivity.this, DayActivity.class));
 		}
 	});
 
