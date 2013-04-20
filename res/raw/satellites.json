@@ -1,0 +1,122 @@
+[
+    {
+        "url": "http://sci.esa.int/xmm-newton", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/xmm-newton", 
+            "rel": "self"
+        }, 
+        "name": "XMM-Newton", 
+        "id": 1
+    }, 
+    {
+        "url": "http://nasa.gov/hubble", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/hubble-space-telescope", 
+            "rel": "self"
+        }, 
+        "name": "Hubble Space Telescope", 
+        "id": 2
+    }, 
+    {
+        "url": "http://nasa.gov/swift", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/swift", 
+            "rel": "self"
+        }, 
+        "name": "SWIFT", 
+        "id": 3
+    }, 
+    {
+        "url": "http://nasa.gov/nustar", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/nustar", 
+            "rel": "self"
+        }, 
+        "name": "NuSTAR", 
+        "id": 4
+    }, 
+    {
+        "url": "http://sci.esa.int/integral", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/integral", 
+            "rel": "self"
+        }, 
+        "name": "INTEGRAL", 
+        "id": 5
+    }, 
+    {
+        "url": "http://nasa.gov/chandra", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/chandra", 
+            "rel": "self"
+        }, 
+        "name": "Chandra", 
+        "id": 6
+    }, 
+    {
+        "url": "http://www.jaxa.jp/projects/sat/astro_e2/", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/suzaku", 
+            "rel": "self"
+        }, 
+        "name": "Suzaku", 
+        "id": 7
+    }, 
+    {
+        "url": "http://agile.asdc.asi.it/", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/agile", 
+            "rel": "self"
+        }, 
+        "name": "AGILE", 
+        "id": 8
+    }, 
+    {
+        "url": "http://www.nasa.gov/centers/goddard/missions/rxte.html", 
+        "active": false, 
+        "link": {
+            "url": "/api/satellites/rxte", 
+            "rel": "self"
+        }, 
+        "name": "RXTE", 
+        "id": 9
+    }, 
+    {
+        "url": "http://sci.esa.int/herschel", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/herschel", 
+            "rel": "self"
+        }, 
+        "name": "Herschel", 
+        "id": 10
+    }, 
+    {
+        "url": "http://nasa.gov/spitzer", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/spitzer", 
+            "rel": "self"
+        }, 
+        "name": "Spitzer", 
+        "id": 11
+    }, 
+    {
+        "url": "http://nasa.gov/fermi", 
+        "active": true, 
+        "link": {
+            "url": "/api/satellites/fermi", 
+            "rel": "self"
+        }, 
+        "name": "Fermi", 
+        "id": 12
+    }
+]
