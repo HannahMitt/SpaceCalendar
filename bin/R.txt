@@ -18,11 +18,8 @@ int dimen calendar_month_topmargin 0x7f060001
 int dimen calendar_text_medium 0x7f060003
 int dimen calendar_text_small 0x7f060004
 int dimen dot 0x7f060005
-int drawable dot_background1 0x7f020000
-int drawable dot_background2 0x7f020001
-int drawable dot_background3 0x7f020002
-int drawable ic_launcher 0x7f020003
-int drawable space_background 0x7f020004
+int drawable ic_launcher 0x7f020000
+int drawable space_background 0x7f020001
 int id calendar_grid 0x7f0a0007
 int id calendar_view 0x7f0a0000
 int id day_text 0x7f0a0004
@@ -36,10 +33,9 @@ int layout activity_main 0x7f030000
 int layout calendar_picker 0x7f030001
 int layout day 0x7f030002
 int layout day_view 0x7f030003
-int layout dot 0x7f030004
-int layout legend_text 0x7f030005
-int layout month 0x7f030006
-int layout week 0x7f030007
+int layout legend_text 0x7f030004
+int layout month 0x7f030005
+int layout week 0x7f030006
 int menu activity_main 0x7f090000
 int raw agencies 0x7f040000
 int raw satellites 0x7f040001

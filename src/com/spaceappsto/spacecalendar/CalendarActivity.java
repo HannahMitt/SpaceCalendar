@@ -7,7 +7,6 @@ import java.util.List;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,32 +38,16 @@ public class CalendarActivity extends Activity {
 			@Override
 			public void onComplete(List<Satellite> result) {
 				satellites = result;
-				Log.d("Han", "sat length: " + satellites.size());
 				populateLegend();
 			}
 		};
+		
+		populateCalendar();
 
 		new FetchSatellitesTask(this, progressDialog, satelliteListener).execute();
-
-		Calendar startDate = Calendar.getInstance();
-		startDate.add(Calendar.YEAR, -2);
-
-		Calendar futureEnd = Calendar.getInstance();
-		futureEnd.add(Calendar.YEAR, 2);
-
-		final CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
-		calendar.init(new Date(), startDate.getTime(), futureEnd.getTime());
-
-		calendar.setOnDateSelectedListener(new OnDateSelectedListener() {
-
-			@Override
-			public void onDateSelected(Date date) {
-				Log.d(TAG, "Selected time in millis: " + calendar.getSelectedDate().getTime());
-				startActivity(new Intent(CalendarActivity.this, DayActivity.class));
-			}
-		});
-
 	}
+
+	
 
 	private void populateLegend() {
 		int numPerCol = (int) Math.ceil(satellites.size() / 3.0);
@@ -92,5 +75,25 @@ public class CalendarActivity extends Activity {
 			} else
 				break;
 		}
+	}
+	
+	private void populateCalendar() {
+		Calendar startDate = Calendar.getInstance();
+		startDate.add(Calendar.YEAR, -2);
+
+		Calendar futureEnd = Calendar.getInstance();
+		futureEnd.add(Calendar.YEAR, 2);
+
+		final CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
+		calendar.init(new Date(), startDate.getTime(), futureEnd.getTime());
+
+		calendar.setOnDateSelectedListener(new OnDateSelectedListener() {
+
+			@Override
+			public void onDateSelected(Date date) {
+				Log.d(TAG, "Selected time in millis: " + calendar.getSelectedDate().getTime());
+				startActivity(new Intent(CalendarActivity.this, DayActivity.class));
+			}
+		});
 	}
 }
