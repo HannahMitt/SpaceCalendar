@@ -20,12 +20,22 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		if(item.getItemId() == R.id.menu_timessquare){
+		switch (item.getItemId()) {
+		case R.id.menu_timessquare:
 			startActivity(new Intent(this, SampleTimesSquareActivity.class));
+			break;
+			
+		case R.id.menu_pager:
+			startActivity(new Intent(this, PagerActivity.class));
+			break;
+
+		default:
+			break;
 		}
+
 		return super.onOptionsItemSelected(item);
 	}
 

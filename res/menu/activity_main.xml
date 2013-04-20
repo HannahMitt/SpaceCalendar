@@ -11,5 +11,11 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="Times Square"/>
+    
+    <item
+        android:id="@+id/menu_pager"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="Pager"/>
 
 </menu>

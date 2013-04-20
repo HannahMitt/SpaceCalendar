@@ -26,6 +26,10 @@
             android:name="com.spaceappsto.spacecalendar.SampleTimesSquareActivity"
             android:label="Calendar" >
         </activity>
+        <activity
+            android:name="com.spaceappsto.spacecalendar.PagerActivity"
+            android:label="Pager" >
+        </activity>
     </application>
 
 </manifest>
