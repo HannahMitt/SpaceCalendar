@@ -2,10 +2,8 @@ package com.spaceappsto.spacecalendar;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,9 +13,8 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.spaceappsto.spacecalendar.network.FetchSatellitesTask;
+import com.spaceappsto.spacecalendar.network.ObservationsHolder;
 import com.spaceappsto.spacecalendar.network.Satellite;
-import com.spaceappsto.spacecalendar.network.SpaceDataListener;
 import com.squareup.timessquare.CalendarPickerView;
 import com.squareup.timessquare.CalendarPickerView.OnDateSelectedListener;
 import com.squareup.timessquare.DotUtility;
@@ -25,34 +22,17 @@ import com.squareup.timessquare.DotUtility;
 public class CalendarActivity extends Activity {
 	private static final String TAG = "SampleTimesSquareActivity";
 
-	private ProgressDialog progressDialog;
-	private SpaceDataListener<List<Satellite>> satelliteListener;
-	public static List<Satellite> satellites; //TODO don't just make this static access - hacking only
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.calendar_picker);
 
-		progressDialog = new ProgressDialog(this);
-		satelliteListener = new SpaceDataListener<List<Satellite>>() {
-
-			@Override
-			public void onComplete(List<Satellite> result) {
-				satellites = result;
-				populateLegend();
-			}
-		};
-		
 		populateCalendar();
-
-		new FetchSatellitesTask(this, progressDialog, satelliteListener).execute();
+		populateLegend();
 	}
 
-	
-
 	private void populateLegend() {
-		int numPerCol = (int) Math.ceil(satellites.size() / 3.0);
+		int numPerCol = (int) Math.ceil(ObservationsHolder.getSatellites().size() / 3.0);
 
 		LinearLayout col1 = (LinearLayout) findViewById(R.id.legend_col1);
 		fillColumn(numPerCol, 0, col1);
@@ -66,11 +46,11 @@ public class CalendarActivity extends Activity {
 
 	private void fillColumn(int numPerCol, int colIndex, LinearLayout col) {
 		for (int i = 0; i < numPerCol; i++) {
-			if (satellites.size() > numPerCol * colIndex + i) {
-				Satellite satellite = satellites.get(numPerCol * colIndex + i);
+			if (ObservationsHolder.getSatellites().size() > numPerCol * colIndex + i) {
+				Satellite satellite = ObservationsHolder.getSatellites().get(numPerCol * colIndex + i);
 				TextView legendLabel = (TextView) getLayoutInflater().inflate(R.layout.legend_text, null);
 				legendLabel.setText(satellite.name);
-				
+
 				Drawable drawable = DotUtility.getDotWithColorIndex(this, satellite.id);
 				legendLabel.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);
 				col.addView(legendLabel);
@@ -78,7 +58,7 @@ public class CalendarActivity extends Activity {
 				break;
 		}
 	}
-	
+
 	private void populateCalendar() {
 		Calendar startDate = Calendar.getInstance();
 		startDate.add(Calendar.YEAR, -2);
@@ -98,7 +78,7 @@ public class CalendarActivity extends Activity {
 			}
 		});
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.activity_calendar, menu);

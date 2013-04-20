@@ -44,7 +44,9 @@ int layout search_cell 0x7f030007
 int layout week 0x7f030008
 int menu activity_calendar 0x7f090000
 int raw agencies 0x7f040000
-int raw satellites 0x7f040001
+int raw observation 0x7f040001
+int raw satellites 0x7f040002
+int raw target 0x7f040003
 int string app_name 0x7f070003
 int string day_name_format 0x7f070000
 int string hello_world 0x7f070004

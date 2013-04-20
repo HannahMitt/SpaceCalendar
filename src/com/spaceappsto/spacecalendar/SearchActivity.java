@@ -1,8 +1,5 @@
 package com.spaceappsto.spacecalendar;
 
-import com.spaceappsto.spacecalendar.adapter.SearchAdapter;
-import com.spaceappsto.spacecalendar.network.Satellite;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +9,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.spaceappsto.spacecalendar.adapter.SearchAdapter;
+import com.spaceappsto.spacecalendar.network.ObservationsHolder;
+import com.spaceappsto.spacecalendar.network.Satellite;
+
 public class SearchActivity extends Activity {
 
 	@Override
@@ -20,9 +21,9 @@ public class SearchActivity extends Activity {
 		setContentView(R.layout.search);
 		
 		ListView listView = (ListView) findViewById(R.id.listview);
-		SearchAdapter searchAdapter = new SearchAdapter(this, 0, 0, CalendarActivity.satellites);
+		SearchAdapter searchAdapter = new SearchAdapter(this, 0, 0, ObservationsHolder.getSatellites());
 		//listView.setAdapter(searchAdapter);
-		listView.setAdapter(new ArrayAdapter<Satellite>(this, R.layout.search_cell, R.id.name, CalendarActivity.satellites));
+		listView.setAdapter(new ArrayAdapter<Satellite>(this, R.layout.search_cell, R.id.name, ObservationsHolder.getSatellites()));
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
