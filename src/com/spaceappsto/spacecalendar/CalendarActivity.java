@@ -27,7 +27,7 @@ public class CalendarActivity extends Activity {
 
 	private ProgressDialog progressDialog;
 	private SpaceDataListener<List<Satellite>> satelliteListener;
-	private List<Satellite> satellites;
+	public static List<Satellite> satellites; //TODO don't just make this static access - hacking only
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
