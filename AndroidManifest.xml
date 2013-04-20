@@ -34,6 +34,10 @@
             android:name="com.spaceappsto.spacecalendar.SearchActivity"
             android:label="Search" >
         </activity>
+        <activity
+            android:name="com.spaceappsto.spacecalendar.ObservationActivity"
+            android:label="Observation" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,9 +1,12 @@
 package com.spaceappsto.spacecalendar.network;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Satellite {
+public class Satellite implements Serializable{
+
+	private static final long serialVersionUID = -6953598619658630380L;
 
 	public String url;
 	public boolean active;

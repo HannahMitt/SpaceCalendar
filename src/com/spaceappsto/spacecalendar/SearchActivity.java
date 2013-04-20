@@ -28,7 +28,11 @@ public class SearchActivity extends Activity {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				startActivity(new Intent(SearchActivity.this, DayActivity.class));
+				Intent intent = new Intent(SearchActivity.this, ObservationActivity.class);
+				Bundle bundle = new Bundle();
+				bundle.putParcelable(ObservationActivity.BUNDLE_KEY, ObservationsHolder.getObservations().get(arg2));
+				intent.putExtras(bundle);
+				startActivity(intent);
 			}
 		});
 	}
