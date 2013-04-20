@@ -17,7 +17,4 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="legend_label" parent="android:Widget.Holo.Light.TextView">
-        <item name="android:drawableLeft">@drawable/dot_background1</item>
-    </style>
 </resources>

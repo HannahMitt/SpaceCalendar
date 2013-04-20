@@ -23,87 +23,27 @@
         android:padding="5dp" >
 
         <LinearLayout
+            android:id="@+id/legend_col1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/legend_1"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="XMM" />
-
-            <TextView
-                android:id="@+id/legend_2"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Newton" />
-
-            <TextView
-                android:id="@+id/legend_3"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Newt" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/legend_col2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/legend_4"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="XMM-Newton" />
-
-            <TextView
-                android:id="@+id/legend_5"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="XMM-Newton" />
-
-            <TextView
-                android:id="@+id/legend_6"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="XMM-Newton" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/legend_col3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/legend_7"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="XMM-Newton" />
-
-            <TextView
-                android:id="@+id/legend_8"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="XMM-Newton" />
-
-            <TextView
-                android:id="@+id/legend_9"
-                style="@style/legend_label"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="XMM-Newton" />
         </LinearLayout>
     </LinearLayout>
 
