@@ -18,11 +18,5 @@
       android:clipToPadding="false"
       android:background="#FFFFFF"
       />
-  <Button
-      android:id="@+id/done_button"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Done"
-      />
 
 </LinearLayout>

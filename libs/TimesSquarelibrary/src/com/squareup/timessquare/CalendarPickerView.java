@@ -218,7 +218,8 @@ public class CalendarPickerView extends ListView {
     post(new Runnable() {
       @Override
       public void run() {
-        smoothScrollToPosition(selectedIndex);
+        //smoothScrollToPosition(selectedIndex);
+        setSelection(selectedIndex);
       }
     });
   }

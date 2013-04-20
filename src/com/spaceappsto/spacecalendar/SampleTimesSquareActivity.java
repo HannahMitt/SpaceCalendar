@@ -1,16 +1,15 @@
 package com.spaceappsto.spacecalendar;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Toast;
-import com.squareup.timessquare.CalendarPickerView;
 import java.util.Calendar;
 import java.util.Date;
 
-import static android.widget.Toast.LENGTH_SHORT;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+
+import com.squareup.timessquare.CalendarPickerView;
+import com.squareup.timessquare.CalendarPickerView.OnDateSelectedListener;
 
 public class SampleTimesSquareActivity extends Activity {
   private static final String TAG = "SampleTimesSquareActivity";
@@ -19,18 +18,23 @@ public class SampleTimesSquareActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.calendar_picker);
 
-    Calendar nextYear = Calendar.getInstance();
-    nextYear.add(Calendar.YEAR, 1);
+    Calendar startDate = Calendar.getInstance();
+    startDate.add(Calendar.YEAR, -2);
+    
+    Calendar futureEnd = Calendar.getInstance();
+    futureEnd.add(Calendar.YEAR, 2);
 
     final CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
-    calendar.init(new Date(), new Date(), nextYear.getTime());
+    calendar.init(new Date(), startDate.getTime(), futureEnd.getTime());
+    
+    calendar.setOnDateSelectedListener(new OnDateSelectedListener() {
+		
+		@Override
+		public void onDateSelected(Date date) {
+			Log.d(TAG, "Selected time in millis: " + calendar.getSelectedDate().getTime());
+			startActivity(new Intent(SampleTimesSquareActivity.this, DayActivity.class));
+		}
+	});
 
-    findViewById(R.id.done_button).setOnClickListener(new OnClickListener() {
-      @Override public void onClick(View view) {
-        Log.d(TAG, "Selected time in millis: " + calendar.getSelectedDate().getTime());
-        String toast = "Selected: " + calendar.getSelectedDate().getTime();
-        Toast.makeText(SampleTimesSquareActivity.this, toast, LENGTH_SHORT).show();
-      }
-    });
   }
 }

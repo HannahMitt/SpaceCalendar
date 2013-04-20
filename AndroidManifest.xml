@@ -30,6 +30,10 @@
             android:name="com.spaceappsto.spacecalendar.PagerActivity"
             android:label="Pager" >
         </activity>
+        <activity
+            android:name="com.spaceappsto.spacecalendar.DayActivity"
+            android:label="Day" >
+        </activity>
     </application>
 
 </manifest>
