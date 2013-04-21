@@ -15,6 +15,10 @@ public class SatellitePicturesUtility {
 			return R.drawable.rxte;
 		} else if ("suzaku".equalsIgnoreCase(name)) {
 			return R.drawable.suzaku;
+		} else if("Hubble Space Telescope".equalsIgnoreCase(name)){ 
+			return R.drawable.hubble;
+		} else if("XMM-Newton".equalsIgnoreCase(name)){
+			return R.drawable.xmmnewton;
 		} else {
 			return R.drawable.space_background;
 		}
