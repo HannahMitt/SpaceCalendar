@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.util.Linkify;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,9 +40,13 @@ public class ObservationActivity extends Activity {
 		((TextView) findViewById(R.id.ra)).setText(observation.target.ra);
 		((TextView) findViewById(R.id.dec)).setText(observation.target.dec);
 
-		((TextView) findViewById(R.id.revolution)).setText("Revolution: " + observation.revolution);
+		((TextView) findViewById(R.id.revolution)).setText(observation.revolution + "");
 		((TextView) findViewById(R.id.start_time)).setText(sdf.format(observation.start_time));
 		((TextView) findViewById(R.id.end_time)).setText(sdf.format(observation.finish_time));
+		
+		TextView urlText = (TextView) findViewById(R.id.url);
+		urlText.setText(observation.satellite.url);
+		Linkify.addLinks(urlText, Linkify.WEB_URLS);
 	}
 
 	public void onSimbadClick(View view) {

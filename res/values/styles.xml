@@ -26,5 +26,7 @@
     </style>
     <style name="divider">
         <item name="android:background">@color/navigation_grey</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
     </style>
 </resources>

@@ -19,4 +19,5 @@
         <string name="dec_caps">DEC</string>
         <string name="start_time">START TIME</string>
         <string name="end_time">END TIME</string>
+        <string name="url">URL</string>
 </resources>
