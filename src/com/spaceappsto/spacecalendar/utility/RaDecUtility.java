@@ -5,6 +5,10 @@ import java.util.regex.Pattern;
 
 public class RaDecUtility {
 
+	public static boolean compareRadians(double val1, double val2) {
+		return Math.abs(val1 - val2) < 1e-2;
+	}
+
 	/**
 	 * Parse Dec from its time format
 	 * 
@@ -12,41 +16,56 @@ public class RaDecUtility {
 	 *            the Dec string
 	 * @return double representing the radian angle of the measure
 	 */
-	public static double parseDecToRadians(String decString) {
-		if (decString.matches("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9])s$")) {
-			Pattern pattern = Pattern.compile("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9])s$");
-			Matcher matcher = pattern.matcher(decString);
-			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
-
-		}
-
-		if (decString.matches("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$")) {
-			Pattern pattern = Pattern.compile("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$");
-			Matcher matcher = pattern.matcher(decString);
-			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
-
-		}
+	public static double parseDecToRadians(String decString) throws IllegalStateException {
+		// if
+		// (decString.matches("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9])s$")) {
+		// Pattern pattern =
+		// Pattern.compile("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9])s$");
+		// Matcher matcher = pattern.matcher(decString);
+		// matcher.find();
+		// return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)),
+		// Double.parseDouble(matcher.group(2)),
+		// Double.parseDouble(matcher.group(3)));
+		//
+		// }
+		//
+		// if
+		// (decString.matches("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$"))
+		// {
+		// Pattern pattern =
+		// Pattern.compile("^([0-9]?[0-9])d([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$");
+		// Matcher matcher = pattern.matcher(decString);
+		// matcher.find();
+		// return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)),
+		// Double.parseDouble(matcher.group(2)),
+		// Double.parseDouble(matcher.group(3)));
+		//
+		// }
 
 		if (decString.matches("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])(.[0-9]+)$")) {
 			Pattern pattern = Pattern.compile("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])(.[0-9]+)$");
 			Matcher matcher = pattern.matcher(decString);
+			matcher.find();
 			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
 		}
 
 		if (decString.matches("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])$")) {
 			Pattern pattern = Pattern.compile("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])$");
 			Matcher matcher = pattern.matcher(decString);
+			matcher.find();
 			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
 		}
 
 		if (decString.matches("^([0-9]+)d$")) {
 			Pattern pattern = Pattern.compile("^([0-9]+)d$");
 			Matcher matcher = pattern.matcher(decString);
+			matcher.find();
 			return getRadiansByDegrees(Double.parseDouble(matcher.group(1)));
 		}
 		if (decString.matches("^([0-9]+\\.[0-9]+)d$")) {
 			Pattern pattern = Pattern.compile("^([0-9]+\\.[0-9]+)d$");
 			Matcher matcher = pattern.matcher(decString);
+			matcher.find();
 			return getRadiansByDegrees(Double.parseDouble(matcher.group(1)));
 		}
 
@@ -61,41 +80,56 @@ public class RaDecUtility {
 	 *            the RA string
 	 * @return double representing the radian angle of the measure
 	 */
-	public static double parseRAToRadians(String raString) {
-		if (raString.matches("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9])s$")) {
-			Pattern pattern = Pattern.compile("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9])s$");
-			Matcher matcher = pattern.matcher(raString);
-			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
-
-		}
-
-		if (raString.matches("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$")) {
-			Pattern pattern = Pattern.compile("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$");
-			Matcher matcher = pattern.matcher(raString);
-			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
-
-		}
+	public static double parseRAToRadians(String raString) throws IllegalStateException {
+		// if (raString.matches("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9])s$"))
+		// {
+		// Pattern pattern =
+		// Pattern.compile("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9])s$");
+		// Matcher matcher = pattern.matcher(raString);
+		// matcher.find();
+		// return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)),
+		// Double.parseDouble(matcher.group(2)),
+		// Double.parseDouble(matcher.group(3)));
+		//
+		// }
+		//
+		// if
+		// (raString.matches("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$"))
+		// {
+		// Pattern pattern =
+		// Pattern.compile("^([0-9]?[0-9])h([0-9]?[0-9])m([0-9]?[0-9]\\.[0-9]+)s$");
+		// Matcher matcher = pattern.matcher(raString);
+		// matcher.find();
+		// return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)),
+		// Double.parseDouble(matcher.group(2)),
+		// Double.parseDouble(matcher.group(3)));
+		//
+		// }
 
 		if (raString.matches("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])(.[0-9]+)$")) {
 			Pattern pattern = Pattern.compile("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])(.[0-9]+)$");
 			Matcher matcher = pattern.matcher(raString);
+			matcher.find();
 			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
 		}
 
 		if (raString.matches("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])$")) {
 			Pattern pattern = Pattern.compile("^([0-9]?[0-9]):([0-9]?[0-9]):([0-9]?[0-9])$");
 			Matcher matcher = pattern.matcher(raString);
+			matcher.find();
 			return getRadiansByHHMMSS(Double.parseDouble(matcher.group(1)), Double.parseDouble(matcher.group(2)), Double.parseDouble(matcher.group(3)));
 		}
 
 		if (raString.matches("^([0-9]+)d$")) {
 			Pattern pattern = Pattern.compile("^([0-9]+)d$");
 			Matcher matcher = pattern.matcher(raString);
+			matcher.find();
 			return getRadiansByDegrees(Double.parseDouble(matcher.group(1)));
 		}
 		if (raString.matches("^([0-9]+\\.[0-9]+)d$")) {
 			Pattern pattern = Pattern.compile("^([0-9]+\\.[0-9]+)d$");
 			Matcher matcher = pattern.matcher(raString);
+			matcher.find();
 			return getRadiansByDegrees(Double.parseDouble(matcher.group(1)));
 		}
 
@@ -114,5 +148,4 @@ public class RaDecUtility {
 		double degrees = degreeHours + degreesMin + degreesSec;
 		return Math.toRadians(degrees);
 	}
-
 }
