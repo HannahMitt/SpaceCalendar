@@ -10,11 +10,11 @@
       "satellite" : {
          "link" : {
             "rel" : "self",
-            "url" : "/api/satellites/xmm-newton"
+            "url" : "/api/satellites/chandra"
          },
          "name" : "Chandra",
          "active" : true,
-         "url" : "http://sci.esa.int/xmm-newton",
+         "url" : "http://nasa.gov/chandra",
          "id" : 6
       },
       "revolution" : 17
@@ -25,8 +25,8 @@
          "name" : "EXO748-67",
          "dec" : "-67:45:00.0"
       },
-      "finish_time" : "2012-01-12T19:14:22Z",
-      "start_time" : "2012-01-11T23:02:52Z",
+      "finish_time" : "2012-11-12T19:14:22Z",
+      "start_time" : "2012-11-11T23:02:52Z",
       "satellite" : {
          "link" : {
             "rel" : "self",
@@ -34,7 +34,7 @@
          },
          "name" : "Hubble Space Telescope",
          "active" : true,
-         "url" : "http://sci.esa.int/xmm-newton",
+         "url" : "http://nasa.gov/hubble",
          "id" : 2
       },
       "revolution" : 17
@@ -54,7 +54,7 @@
          },
          "name" : "RXTE",
          "active" : true,
-         "url" : "http://sci.esa.int/xmm-newton",
+         "url" : "http://www.nasa.gov/centers/goddard/missions/rxte.html",
          "id" : 9
       },
       "revolution" : 17
@@ -94,7 +94,7 @@
          },
          "name" : "NuSTAR",
          "active" : true,
-         "url" : "http://sci.esa.int/xmm-newton",
+         "url" : "http://nasa.gov/nustar",
          "id" : 4
       },
       "revolution" : 17
@@ -112,10 +112,30 @@
             "rel" : "self",
             "url" : "/api/satellites/xmm-newton"
          },
-         "name" : "Fermi",
+         "name" : "INTEGRAL",
          "active" : true,
-         "url" : "http://sci.esa.int/xmm-newton",
-         "id" : 12
+         "url" : "http://sci.esa.int/integral",
+         "id" : 5
+      },
+      "revolution" : 17
+   },
+   {
+      "target" : {
+         "ra" : "08:48:24.00",
+         "name" : "NGC2359",
+         "dec" : "-67:43:00.0"
+      },
+      "finish_time" : "2013-03-8T19:14:22Z",
+      "start_time" : "2013-03-2T23:02:52Z",
+      "satellite" : {
+         "link" : {
+            "rel" : "self",
+            "url" : "/api/satellites/xmm-newton"
+         },
+         "name" : "Suzaku",
+         "active" : true,
+         "url" : "http://agile.asdc.asi.it/",
+         "id" : 7
       },
       "revolution" : 17
    }
