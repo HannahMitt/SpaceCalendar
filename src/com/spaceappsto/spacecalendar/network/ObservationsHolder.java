@@ -1,6 +1,7 @@
 package com.spaceappsto.spacecalendar.network;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.squareup.timessquare.objects.Observation;
@@ -13,6 +14,7 @@ public class ObservationsHolder {
 	
 	public static void populateObservations(List<Observation> obs){
 		observations = obs;
+		Collections.sort(observations);
 	}
 	
 	public static void populateSatellites(List<Satellite> sats){
