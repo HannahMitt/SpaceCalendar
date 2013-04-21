@@ -25,7 +25,6 @@ import com.squareup.timessquare.objects.Observation;
 import com.squareup.timessquare.objects.Satellite;
 
 public class CalendarActivity extends Activity {
-	private static final String TAG = "SampleTimesSquareActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

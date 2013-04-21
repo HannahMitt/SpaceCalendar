@@ -1,6 +1,7 @@
 package com.spaceappsto.spacecalendar;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -15,14 +16,21 @@ import com.squareup.timessquare.objects.Observation;
 
 public class SearchActivity extends Activity {
 
+	private Dialog coordsDialog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search);
-		
+
+		setUpListView();
+		setUpDialog();
+	}
+
+	private void setUpListView() {
 		ListView listView = (ListView) findViewById(R.id.listview);
 		SearchAdapter searchAdapter = new SearchAdapter(this, 0, 0, ObservationsHolder.getObservations());
-		//listView.setAdapter(searchAdapter);
+		// listView.setAdapter(searchAdapter);
 		listView.setAdapter(new ArrayAdapter<Observation>(this, R.layout.search_cell, R.id.name, ObservationsHolder.getObservations()));
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -35,5 +43,14 @@ public class SearchActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+	}
+
+	private void setUpDialog() {
+		coordsDialog = new Dialog(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+		coordsDialog.setContentView(R.layout.coords_dialog);
+	}
+
+	public void onClickEditSearch(View view) {
+		coordsDialog.show();
 	}
 }

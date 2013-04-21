@@ -3,6 +3,13 @@
 
     <string name="app_name">Space Calendar</string>
     <string name="hello_world">Hello space!</string>
-    <string name="menu_settings">Settings</string>
 
+    <string-array name="search_types">
+        <item>Coordinates</item>
+    </string-array>
+        <string name="edit_search">Edit Search</string>
+        <string name="where_do_you_want_to_look">Ok great! Where do you want to look?</string>
+        <string name="ra">RA</string>
+        <string name="dec">DEC</string>
+        <string name="lift_off">Lift Off!</string>
 </resources>
