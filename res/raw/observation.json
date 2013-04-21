@@ -12,10 +12,10 @@
             "rel" : "self",
             "url" : "/api/satellites/xmm-newton"
          },
-         "name" : "XMM-Newton",
+         "name" : "Chandra",
          "active" : true,
          "url" : "http://sci.esa.int/xmm-newton",
-         "id" : 1
+         "id" : 6
       },
       "revolution" : 17
    },
@@ -52,17 +52,17 @@
             "rel" : "self",
             "url" : "/api/satellites/xmm-newton"
          },
-         "name" : "SWIFT",
+         "name" : "RXTE",
          "active" : true,
          "url" : "http://sci.esa.int/xmm-newton",
-         "id" : 3
+         "id" : 9
       },
       "revolution" : 17
    },
    {
       "target" : {
          "ra" : "07:48:24.00",
-         "name" : "EXO748-67",
+         "name" : "MWC560",
          "dec" : "-67:45:00.0"
       },
       "finish_time" : "2013-06-19T19:14:22Z",
@@ -96,6 +96,26 @@
          "active" : true,
          "url" : "http://sci.esa.int/xmm-newton",
          "id" : 4
+      },
+      "revolution" : 17
+   },
+   {
+      "target" : {
+         "ra" : "08:48:24.00",
+         "name" : "NGC2359",
+         "dec" : "-67:43:00.0"
+      },
+      "finish_time" : "2013-02-23T19:14:22Z",
+      "start_time" : "2013-02-20T23:02:52Z",
+      "satellite" : {
+         "link" : {
+            "rel" : "self",
+            "url" : "/api/satellites/xmm-newton"
+         },
+         "name" : "Fermi",
+         "active" : true,
+         "url" : "http://sci.esa.int/xmm-newton",
+         "id" : 12
       },
       "revolution" : 17
    }
