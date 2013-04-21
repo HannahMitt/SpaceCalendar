@@ -41,9 +41,9 @@ public class SearchAdapter extends ArrayAdapter<Observation> {
 		}
 
 		Observation observation = observations.get(position);
-		((TextView) row.findViewById(R.id.target_name)).setText(observation.target.name);
 		row.findViewById(R.id.dot).setBackgroundDrawable(DotUtility.getDotWithColorIndex(context, observation.satellite.id));
 		((TextView) row.findViewById(R.id.satellite_name)).setText("Satellite: " + observation.satellite.name);
+		((TextView) row.findViewById(R.id.target_name)).setText("Target: " + observation.target.name);
 		((TextView) row.findViewById(R.id.date)).setText("Date: " + sdf.format(observation.start_time));
 
 		return row;

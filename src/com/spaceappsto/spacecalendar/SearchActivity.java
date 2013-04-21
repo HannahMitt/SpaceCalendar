@@ -11,8 +11,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.spaceappsto.spacecalendar.adapter.SearchAdapter;
@@ -23,6 +25,7 @@ import com.squareup.timessquare.objects.Observation;
 public class SearchActivity extends Activity {
 
 	private Dialog coordsDialog;
+	private Spinner spinner;
 	private TextView ra_text;
 	private TextView dec_text;
 	private String ra = "00:00:00.00";
@@ -39,6 +42,7 @@ public class SearchActivity extends Activity {
 		obsSearch = new ArrayList<Observation>(ObservationsHolder.getObservations());
 
 		setUpRaDec();
+		setUpSpinner();
 		setUpListView();
 		setUpDialog();
 	}
@@ -46,6 +50,36 @@ public class SearchActivity extends Activity {
 	private void setUpRaDec() {
 		ra_text = (TextView) findViewById(R.id.ra_text);
 		dec_text = (TextView) findViewById(R.id.dec_text);
+	}
+
+	private void setUpSpinner() {
+		spinner = (Spinner) findViewById(R.id.search_type);
+		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+				View view = findViewById(R.id.ra_dec_search_layout);
+				switch (arg2) {
+				case 0:
+					view.setVisibility(View.VISIBLE);
+					break;
+				case 1:
+					view.setVisibility(View.GONE);
+					obsSearch.clear();
+					obsSearch.addAll(ObservationsHolder.getObservations());
+					adapter.setList(obsSearch);
+					adapter.notifyDataSetChanged();
+					break;
+
+				default:
+					break;
+				}
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		});
 	}
 
 	private void setUpListView() {
@@ -92,7 +126,7 @@ public class SearchActivity extends Activity {
 				Log.e("RA/DEC", "Could not parse ra/dec " + e.getMessage());
 			}
 		}
-		
+
 		adapter.setList(obsSearch);
 		adapter.notifyDataSetChanged();
 	}
@@ -114,17 +148,17 @@ public class SearchActivity extends Activity {
 				dec += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.dec_3)) + ".";
 				dec += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.dec_4));
 
-				ra_text.setText("RA " + ra);
-				dec_text.setText("DEC " + dec);
+				ra_text.setText("Ra " + ra);
+				dec_text.setText("Dec " + dec);
 				coordsDialog.dismiss();
 				search();
 			}
 		});
 	}
-	
-	private String getSanitizedStringNumber(EditText editText){
+
+	private String getSanitizedStringNumber(EditText editText) {
 		String s = editText.getText().toString();
-		if(s.isEmpty()){
+		if (s.isEmpty()) {
 			return "00";
 		} else {
 			return s;

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="navigation_grey">#81868a</color>
+    <color name="middle_grey">#999999</color>
     <color name="secondary_navigation_grey">#e3e3e2</color>
     <color name="background_light">#f6f6f6</color>
 </resources>
