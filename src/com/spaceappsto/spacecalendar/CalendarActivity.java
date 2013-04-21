@@ -67,13 +67,17 @@ public class CalendarActivity extends Activity {
 
 	private void populateCalendar() {
 		List<Observation> obs = ObservationsHolder.getObservations();
-
+		
 		Calendar startDate = Calendar.getInstance();
-		startDate.setTime(obs.get(0).start_time);
+		Calendar futureEnd = Calendar.getInstance();
+
+		if(obs.size() > 0){
+			startDate.setTime(obs.get(0).start_time);
+			futureEnd.setTime(obs.get(obs.size() - 1).finish_time);
+		}
+
 		startDate.set(Calendar.DAY_OF_MONTH, 1);
 
-		Calendar futureEnd = Calendar.getInstance();
-		futureEnd.setTime(obs.get(obs.size() - 1).finish_time);
 		futureEnd.add(Calendar.MONTH, 2);
 		futureEnd.set(Calendar.DAY_OF_MONTH, 1);
 		futureEnd.add(Calendar.DAY_OF_MONTH, -1);
