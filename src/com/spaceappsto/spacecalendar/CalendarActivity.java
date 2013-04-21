@@ -64,11 +64,17 @@ public class CalendarActivity extends Activity {
 	}
 
 	private void populateCalendar() {
+		List<Observation> obs = ObservationsHolder.getObservations();
+
 		Calendar startDate = Calendar.getInstance();
-		startDate.add(Calendar.YEAR, -1);
+		startDate.setTime(obs.get(0).start_time);
+		startDate.set(Calendar.DAY_OF_MONTH, 1);
 
 		Calendar futureEnd = Calendar.getInstance();
-		futureEnd.add(Calendar.YEAR, 1);
+		futureEnd.setTime(obs.get(obs.size() - 1).finish_time);
+		futureEnd.add(Calendar.MONTH, 2);
+		futureEnd.set(Calendar.DAY_OF_MONTH, 1);
+		futureEnd.add(Calendar.DAY_OF_MONTH, -1);
 
 		final CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
 		calendar.init(new Date(), startDate.getTime(), futureEnd.getTime(), ObservationsHolder.getObservations());
@@ -81,16 +87,16 @@ public class CalendarActivity extends Activity {
 			}
 		});
 	}
-	
-	private void findObservationsForDate(Date date){
+
+	private void findObservationsForDate(Date date) {
 		ArrayList<Observation> obs = new ArrayList<Observation>();
-		for(Observation o : ObservationsHolder.getObservations()){
-			if(o.fallsOnDate(date)){
+		for (Observation o : ObservationsHolder.getObservations()) {
+			if (o.fallsOnDate(date)) {
 				obs.add(o);
 			}
 		}
-		
-		if(obs.size() == 1){
+
+		if (obs.size() == 1) {
 			startObservationActivity(obs.get(0));
 		} else {
 			showSatelliteDialog(obs);
@@ -99,19 +105,19 @@ public class CalendarActivity extends Activity {
 
 	private void showSatelliteDialog(final List<Observation> obs) {
 		CharSequence[] sats = new CharSequence[obs.size()];
-		for(int i = 0; i < obs.size(); i++){
+		for (int i = 0; i < obs.size(); i++) {
 			Observation o = obs.get(i);
 			sats[i] = o.satellite.name + ": " + o.target.name;
 		}
 		new AlertDialog.Builder(this).setItems(sats, new OnClickListener() {
-			
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				startObservationActivity(obs.get(which));
 			}
 		}).show();
 	}
-	
+
 	private void startObservationActivity(Observation o) {
 		Intent intent = new Intent(CalendarActivity.this, ObservationActivity.class);
 		Bundle bundle = new Bundle();
