@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.spaceappsto.spacecalendar.network.Observation;
+import com.squareup.timessquare.objects.Observation;
 
 public class ObservationActivity extends Activity {
 
@@ -28,7 +28,7 @@ public class ObservationActivity extends Activity {
 		((TextView)findViewById(R.id.ra_dec)).setText(raDec);
 		
 		((TextView)findViewById(R.id.revolution)).setText("Revolution: " + observation.revolution);
-		((TextView)findViewById(R.id.time_window)).setText(observation.startTime + " - " + observation.finishTime);
+		((TextView)findViewById(R.id.time_window)).setText(observation.start_time + " - " + observation.finish_time);
 		((TextView)findViewById(R.id.satellite)).setText(observation.satellite.name);
 	}
 	

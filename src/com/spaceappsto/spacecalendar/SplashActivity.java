@@ -8,10 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.spaceappsto.spacecalendar.network.FetchObservationsTask;
-import com.spaceappsto.spacecalendar.network.Observation;
 import com.spaceappsto.spacecalendar.network.ObservationsHolder;
 import com.spaceappsto.spacecalendar.network.ObservationsListener;
-import com.spaceappsto.spacecalendar.network.Satellite;
+import com.squareup.timessquare.objects.Observation;
+import com.squareup.timessquare.objects.Satellite;
 
 public class SplashActivity extends Activity {
 

@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.spaceappsto.spacecalendar.adapter.SearchAdapter;
-import com.spaceappsto.spacecalendar.network.Observation;
 import com.spaceappsto.spacecalendar.network.ObservationsHolder;
+import com.squareup.timessquare.objects.Observation;
 
 public class SearchActivity extends Activity {
 

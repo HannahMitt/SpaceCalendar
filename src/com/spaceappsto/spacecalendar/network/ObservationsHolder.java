@@ -3,6 +3,9 @@ package com.spaceappsto.spacecalendar.network;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.squareup.timessquare.objects.Observation;
+import com.squareup.timessquare.objects.Satellite;
+
 public class ObservationsHolder {
 
 	private static List<Observation> observations;

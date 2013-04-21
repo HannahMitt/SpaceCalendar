@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.spaceappsto.spacecalendar.R;
-import com.spaceappsto.spacecalendar.network.Observation;
+import com.squareup.timessquare.objects.Observation;
 
 public class SearchAdapter extends ArrayAdapter<Observation> {
 

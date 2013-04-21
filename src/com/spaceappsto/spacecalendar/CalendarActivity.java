@@ -14,10 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.spaceappsto.spacecalendar.network.ObservationsHolder;
-import com.spaceappsto.spacecalendar.network.Satellite;
 import com.squareup.timessquare.CalendarPickerView;
 import com.squareup.timessquare.CalendarPickerView.OnDateSelectedListener;
 import com.squareup.timessquare.DotUtility;
+import com.squareup.timessquare.objects.Satellite;
 
 public class CalendarActivity extends Activity {
 	private static final String TAG = "SampleTimesSquareActivity";
@@ -61,13 +61,13 @@ public class CalendarActivity extends Activity {
 
 	private void populateCalendar() {
 		Calendar startDate = Calendar.getInstance();
-		startDate.add(Calendar.YEAR, -2);
+		startDate.add(Calendar.YEAR, -1);
 
 		Calendar futureEnd = Calendar.getInstance();
-		futureEnd.add(Calendar.YEAR, 2);
+		futureEnd.add(Calendar.YEAR, 1);
 
 		final CalendarPickerView calendar = (CalendarPickerView) findViewById(R.id.calendar_view);
-		calendar.init(new Date(), startDate.getTime(), futureEnd.getTime());
+		calendar.init(new Date(), startDate.getTime(), futureEnd.getTime(), ObservationsHolder.getObservations());
 
 		calendar.setOnDateSelectedListener(new OnDateSelectedListener() {
 

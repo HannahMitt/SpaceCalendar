@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.spaceappsto.spacecalendar.R;
+import com.squareup.timessquare.objects.Satellite;
 
 public class FetchSatellitesTask extends AsyncTask<Void, Void, List<Satellite>> {
 
