@@ -109,6 +109,7 @@ int style CalendarCell 0x7f080001
 int style CalendarCell_CalendarDate 0x7f080003
 int style CalendarCell_DayHeader 0x7f080002
 int style CalendarTitle 0x7f080000
+int style button 0x7f08000a
 int style divider 0x7f080009
 int style dot_style 0x7f080004
 int style field_text 0x7f080008

@@ -133,6 +133,7 @@
     <Button
         android:id="@+id/dialog_button"
         android:layout_width="match_parent"
+        style="@style/button"
         android:layout_height="wrap_content"
         android:text="@string/lift_off" />
 

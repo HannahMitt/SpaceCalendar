@@ -16,11 +16,16 @@
         android:paddingRight="16dp"
         android:scrollbarStyle="outsideOverlay" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/navigation_grey" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp" >
+        android:padding="10dp" >
 
         <LinearLayout
             android:id="@+id/legend_col1"

@@ -54,6 +54,7 @@ public class CalendarActivity extends Activity {
 				Satellite satellite = ObservationsHolder.getSatellites().get(numPerCol * colIndex + i);
 				TextView legendLabel = (TextView) getLayoutInflater().inflate(R.layout.legend_text, null);
 				legendLabel.setText(satellite.name);
+				legendLabel.setMaxLines(1);
 
 				Drawable drawable = DotUtility.getDotWithColorIndex(this, satellite.id);
 				legendLabel.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null);

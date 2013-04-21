@@ -45,11 +45,11 @@
         </LinearLayout>
 
         <Button
+            style="@style/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClickEditSearch"
-            android:text="@string/edit_search"
-            android:textColor="@android:color/primary_text_dark" />
+            android:text="@string/edit_search" />
     </LinearLayout>
 
     <View
