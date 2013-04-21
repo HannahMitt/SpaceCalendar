@@ -34,7 +34,7 @@
                 android:id="@+id/ra_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="RA: 19:34:54.0" />
+                android:text="RA: 00:00:00.0" />
 
             <TextView
                 android:id="@+id/dec_text"
