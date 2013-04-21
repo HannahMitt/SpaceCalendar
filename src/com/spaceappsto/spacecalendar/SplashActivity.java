@@ -24,6 +24,7 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		getActionBar().setIcon(R.drawable.satellite);
 
 		progressDialog = new ProgressDialog(this);
 		progressDialog.setMessage("Beaming from space...");

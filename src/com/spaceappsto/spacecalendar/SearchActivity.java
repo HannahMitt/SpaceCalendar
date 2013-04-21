@@ -38,6 +38,7 @@ public class SearchActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search);
+		getActionBar().setIcon(R.drawable.search);
 
 		obsSearch = new ArrayList<Observation>(ObservationsHolder.getObservations());
 

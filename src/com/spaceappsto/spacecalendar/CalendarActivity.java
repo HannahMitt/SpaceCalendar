@@ -29,6 +29,7 @@ public class CalendarActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().setIcon(R.drawable.calendar);
 		setContentView(R.layout.calendar_picker);
 
 		populateCalendar();

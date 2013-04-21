@@ -4,7 +4,7 @@
         android:id="@+id/menu_search"
         android:orderInCategory="100"
         android:showAsAction="always"
-        android:icon="@android:drawable/ic_menu_search"
+        android:icon="@drawable/search"
         android:title="Search"/>
 
 </menu>

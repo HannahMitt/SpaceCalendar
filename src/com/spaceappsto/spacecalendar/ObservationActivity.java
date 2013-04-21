@@ -25,6 +25,7 @@ public class ObservationActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.observation_view);
+		getActionBar().setIcon(R.drawable.satellite);
 
 		observation = getIntent().getParcelableExtra(BUNDLE_KEY);
 		
