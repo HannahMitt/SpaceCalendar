@@ -27,10 +27,6 @@
             android:label="Calendar" >
         </activity>
         <activity
-            android:name="com.spaceappsto.spacecalendar.DayActivity"
-            android:label="Day" >
-        </activity>
-        <activity
             android:name="com.spaceappsto.spacecalendar.SearchActivity"
             android:label="Search" >
         </activity>

@@ -1,13 +1,17 @@
 package com.spaceappsto.spacecalendar;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
@@ -17,6 +21,7 @@ import com.spaceappsto.spacecalendar.network.ObservationsHolder;
 import com.squareup.timessquare.CalendarPickerView;
 import com.squareup.timessquare.CalendarPickerView.OnDateSelectedListener;
 import com.squareup.timessquare.DotUtility;
+import com.squareup.timessquare.objects.Observation;
 import com.squareup.timessquare.objects.Satellite;
 
 public class CalendarActivity extends Activity {
@@ -73,10 +78,47 @@ public class CalendarActivity extends Activity {
 
 			@Override
 			public void onDateSelected(Date date) {
-				Log.d(TAG, "Selected time in millis: " + calendar.getSelectedDate().getTime());
-				startActivity(new Intent(CalendarActivity.this, DayActivity.class));
+				findObservationsForDate(date);
 			}
 		});
+	}
+	
+	private void findObservationsForDate(Date date){
+		ArrayList<Observation> obs = new ArrayList<Observation>();
+		for(Observation o : ObservationsHolder.getObservations()){
+			if(o.fallsOnDate(date)){
+				obs.add(o);
+			}
+		}
+		
+		if(obs.size() == 1){
+			startObservationActivity(obs.get(0));
+		} else {
+			showSatelliteDialog(obs);
+		}
+	}
+
+	private void showSatelliteDialog(final List<Observation> obs) {
+		CharSequence[] sats = new CharSequence[obs.size()];
+		for(int i = 0; i < obs.size(); i++){
+			Observation o = obs.get(i);
+			sats[i] = o.satellite.name + ": " + o.target.name;
+		}
+		new AlertDialog.Builder(this).setItems(sats, new OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				startObservationActivity(obs.get(which));
+			}
+		}).show();
+	}
+	
+	private void startObservationActivity(Observation o) {
+		Intent intent = new Intent(CalendarActivity.this, ObservationActivity.class);
+		Bundle bundle = new Bundle();
+		bundle.putParcelable(ObservationActivity.BUNDLE_KEY, o);
+		intent.putExtras(bundle);
+		startActivity(intent);
 	}
 
 	@Override

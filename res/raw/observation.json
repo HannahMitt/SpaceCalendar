@@ -18,5 +18,85 @@
          "id" : 1
       },
       "revolution" : 17
+   },
+   {
+      "target" : {
+         "ra" : "07:48:24.00",
+         "name" : "EXO748-67",
+         "dec" : "-67:45:00.0"
+      },
+      "finish_time" : "2012-01-12T19:14:22Z",
+      "start_time" : "2012-01-11T23:02:52Z",
+      "satellite" : {
+         "link" : {
+            "rel" : "self",
+            "url" : "/api/satellites/xmm-newton"
+         },
+         "name" : "Hubble Space Telescope",
+         "active" : true,
+         "url" : "http://sci.esa.int/xmm-newton",
+         "id" : 2
+      },
+      "revolution" : 17
+   },
+   {
+      "target" : {
+         "ra" : "07:48:24.00",
+         "name" : "EXO748-67",
+         "dec" : "-67:45:00.0"
+      },
+      "finish_time" : "2013-04-12T19:14:22Z",
+      "start_time" : "2013-04-11T23:02:52Z",
+      "satellite" : {
+         "link" : {
+            "rel" : "self",
+            "url" : "/api/satellites/xmm-newton"
+         },
+         "name" : "SWIFT",
+         "active" : true,
+         "url" : "http://sci.esa.int/xmm-newton",
+         "id" : 3
+      },
+      "revolution" : 17
+   },
+   {
+      "target" : {
+         "ra" : "07:48:24.00",
+         "name" : "EXO748-67",
+         "dec" : "-67:45:00.0"
+      },
+      "finish_time" : "2013-06-19T19:14:22Z",
+      "start_time" : "2013-06-11T23:02:52Z",
+      "satellite" : {
+         "link" : {
+            "rel" : "self",
+            "url" : "/api/satellites/xmm-newton"
+         },
+         "name" : "XMM-Newton",
+         "active" : true,
+         "url" : "http://sci.esa.int/xmm-newton",
+         "id" : 1
+      },
+      "revolution" : 17
+   },
+   {
+      "target" : {
+         "ra" : "07:48:24.00",
+         "name" : "EXO748-67",
+         "dec" : "-67:45:00.0"
+      },
+      "finish_time" : "2013-06-17T19:14:22Z",
+      "start_time" : "2013-06-13T23:02:52Z",
+      "satellite" : {
+         "link" : {
+            "rel" : "self",
+            "url" : "/api/satellites/xmm-newton"
+         },
+         "name" : "NuSTAR",
+         "active" : true,
+         "url" : "http://sci.esa.int/xmm-newton",
+         "id" : 4
+      },
+      "revolution" : 17
    }
 ]
