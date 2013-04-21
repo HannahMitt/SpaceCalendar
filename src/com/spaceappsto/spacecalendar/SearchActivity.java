@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.spaceappsto.spacecalendar.adapter.SearchAdapter;
 import com.spaceappsto.spacecalendar.network.ObservationsHolder;
-import com.squareup.timessquare.objects.Observation;
 
 public class SearchActivity extends Activity {
 
@@ -30,8 +28,7 @@ public class SearchActivity extends Activity {
 	private void setUpListView() {
 		ListView listView = (ListView) findViewById(R.id.listview);
 		SearchAdapter searchAdapter = new SearchAdapter(this, 0, 0, ObservationsHolder.getObservations());
-		// listView.setAdapter(searchAdapter);
-		listView.setAdapter(new ArrayAdapter<Observation>(this, R.layout.search_cell, R.id.name, ObservationsHolder.getObservations()));
+		listView.setAdapter(searchAdapter);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
