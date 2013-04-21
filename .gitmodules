@@ -1,0 +1,3 @@
+[submodule "timessquare"]
+	path = timessquare
+	url = https://github.com/HannahMitt/android-times-square
