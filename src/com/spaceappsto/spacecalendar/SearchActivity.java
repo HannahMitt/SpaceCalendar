@@ -1,9 +1,12 @@
 package com.spaceappsto.spacecalendar;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 
 import com.spaceappsto.spacecalendar.adapter.SearchAdapter;
 import com.spaceappsto.spacecalendar.network.ObservationsHolder;
+import com.squareup.timessquare.objects.Observation;
 
 public class SearchActivity extends Activity {
 
@@ -22,12 +26,17 @@ public class SearchActivity extends Activity {
 	private TextView dec_text;
 	private String ra = "00:00:00.00";
 	private String dec = "+000:00:00.00";
+	
+	private ArrayList<Observation> obsSearch;
+	private SearchAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.search);
 
+		obsSearch = new ArrayList<Observation>(ObservationsHolder.getObservations());
+		
 		setUpRaDec();
 		setUpListView();
 		setUpDialog();
@@ -40,19 +49,32 @@ public class SearchActivity extends Activity {
 	
 	private void setUpListView() {
 		ListView listView = (ListView) findViewById(R.id.listview);
-		SearchAdapter searchAdapter = new SearchAdapter(this, 0, 0, ObservationsHolder.getObservations());
-		listView.setAdapter(searchAdapter);
+		adapter = new SearchAdapter(this, 0, 0, obsSearch);
+		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 				Intent intent = new Intent(SearchActivity.this, ObservationActivity.class);
 				Bundle bundle = new Bundle();
-				bundle.putParcelable(ObservationActivity.BUNDLE_KEY, ObservationsHolder.getObservations().get(arg2));
+				bundle.putParcelable(ObservationActivity.BUNDLE_KEY, obsSearch.get(arg2));
 				intent.putExtras(bundle);
 				startActivity(intent);
 			}
 		});
+	}
+	
+	private void search(){
+		obsSearch.clear();
+		for(Observation o : ObservationsHolder.getObservations()){
+			Log.d("Han", "Search ra: " + ra + " Target ra: " + o.target.ra);
+			Log.d("Han", "Search dec: " + dec + " Target dec: " + o.target.dec);
+			if(o.target.ra.equals(ra) && o.target.dec.equals(dec)){
+				obsSearch.add(o);
+			}
+		}
+		adapter.setList(obsSearch);
+		adapter.notifyDataSetChanged();
 	}
 
 	private void setUpDialog() {
@@ -75,6 +97,7 @@ public class SearchActivity extends Activity {
 				ra_text.setText("RA " + ra);
 				dec_text.setText("DEC " + dec);
 				coordsDialog.dismiss();
+				search();
 			}
 		});
 	}

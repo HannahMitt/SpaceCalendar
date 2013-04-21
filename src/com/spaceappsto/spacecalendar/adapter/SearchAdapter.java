@@ -25,6 +25,10 @@ public class SearchAdapter extends ArrayAdapter<Observation> {
 		this.context = context;
 		observations = objects;
 	}
+	
+	public void setList(List<Observation> observations){
+		this.observations = observations;
+	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {

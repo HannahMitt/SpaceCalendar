@@ -40,7 +40,7 @@
                 android:id="@+id/dec_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DEC: -50:53:19.0" />
+                android:text="DEC: +000:00:00.0" />
         </LinearLayout>
 
         <Button
