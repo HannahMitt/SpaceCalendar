@@ -104,15 +104,15 @@ public class SearchActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				ra = ((EditText) coordsDialog.findViewById(R.id.ra_1)).getText().toString() + ":";
-				ra += ((EditText) coordsDialog.findViewById(R.id.ra_2)).getText().toString() + ":";
-				ra += ((EditText) coordsDialog.findViewById(R.id.ra_3)).getText().toString() + ".";
-				ra += ((EditText) coordsDialog.findViewById(R.id.ra_4)).getText().toString();
+				ra = getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.ra_1)) + ":";
+				ra += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.ra_2)) + ":";
+				ra += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.ra_3)) + ".";
+				ra += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.ra_4));
 
-				dec = ((EditText) coordsDialog.findViewById(R.id.dec_1)).getText().toString() + ":";
-				dec += ((EditText) coordsDialog.findViewById(R.id.dec_2)).getText().toString() + ":";
-				dec += ((EditText) coordsDialog.findViewById(R.id.dec_3)).getText().toString() + ".";
-				dec += ((EditText) coordsDialog.findViewById(R.id.dec_4)).getText().toString();
+				dec = getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.dec_1)) + ":";
+				dec += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.dec_2)) + ":";
+				dec += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.dec_3)) + ".";
+				dec += getSanitizedStringNumber((EditText) coordsDialog.findViewById(R.id.dec_4));
 
 				ra_text.setText("RA " + ra);
 				dec_text.setText("DEC " + dec);
@@ -120,6 +120,15 @@ public class SearchActivity extends Activity {
 				search();
 			}
 		});
+	}
+	
+	private String getSanitizedStringNumber(EditText editText){
+		String s = editText.getText().toString();
+		if(s.isEmpty()){
+			return "00";
+		} else {
+			return s;
+		}
 	}
 
 	public void onClickEditSearch(View view) {
