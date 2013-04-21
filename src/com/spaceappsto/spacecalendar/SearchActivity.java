@@ -85,7 +85,7 @@ public class SearchActivity extends Activity {
 				double oDec = RaDecUtility.parseDecToRadians(o.target.dec);
 				Log.d("Han", "Search ra: " + raVal + " Target ra: " + oRa);
 				Log.d("Han", "Search dec: " + decVal + " Target dec: " + oDec);
-				if (raVal == oRa && decVal == oDec) {
+				if (RaDecUtility.compareRadians(raVal, oRa) && RaDecUtility.compareRadians(decVal, oDec)) {
 					obsSearch.add(o);
 				}
 			} catch (IllegalStateException e) {
