@@ -21,4 +21,10 @@
         <item name="android:inputType">number</item>
         <item name="android:maxLength">2</item>
     </style>
+    <style name="field_text" parent="android:Widget.Holo.Light.TextView">
+        <item name="android:textSize">20dp</item>
+    </style>
+    <style name="divider">
+        <item name="android:background">@color/navigation_grey</item>
+    </style>
 </resources>

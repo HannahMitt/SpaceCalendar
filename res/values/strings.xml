@@ -12,4 +12,11 @@
         <string name="ra">RA</string>
         <string name="dec">DEC</string>
         <string name="lift_off">Lift Off!</string>
+        <string name="satellite">SATELLITE</string>
+        <string name="target">TARGET</string>
+        <string name="revolution">REVOLUTION</string>
+        <string name="ra_caps">RA</string>
+        <string name="dec_caps">DEC</string>
+        <string name="start_time">START TIME</string>
+        <string name="end_time">END TIME</string>
 </resources>
